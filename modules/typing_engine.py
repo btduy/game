@@ -55,7 +55,15 @@ def get_remaining_time():
 
 def is_time_up():
     remaining = get_remaining_time()
-    return False if remaining is None else remaining <= 0
+
+    if remaining is None:
+        return False
+
+    if remaining <= 0:
+        end_session()
+        return True
+
+    return False
 
 
 def get_char_status():
